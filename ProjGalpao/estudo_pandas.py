@@ -134,7 +134,3 @@ print(f"o menor salario foi de {df['Salario'].min()}")
 
 print("-----FILTROS-----")
 
-
-
-
-# aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
