@@ -17,7 +17,7 @@ print("----------INICIO----------")
 
 print()
 
-# print(df.head())
+print(df.head())
 
 print()
 print()
@@ -82,14 +82,14 @@ print()
 print()
 
 
-''' df["nome"] df[["nome"]]
+''' df["temperatura_ar"] df[["temperatura_ar, amonia"]]
     Seleciona uma coluna ou mais
 '''
 print("Agora estou selecionando uma e duas tabelas:")
 print()
-# print(df["nome"])
+print(df["temperatura_ar"])
 
-# print(df[["nome", "Salario"]])
+print(df[["temperatura_ar", "amonia"]])
 
 
 
@@ -109,17 +109,73 @@ print(f"Exitem {df.shape[1]} colunas na tabela")
 
 print()
 
-# print("Salario medio e idade media")
+print("temperatura_ar media e amonia media")
 # # para calcular a media podemos utilizar a funcao mean()
 
-# print(f"a media dos salrios é de {df["Salario"].mean()}")
-# print(f"a media das idades é de {df["Idade"].mean()}")
+print(f"a media da temperatura do ar é de {df["temperatura_ar"].mean()}")
+print(f"a media da amonia é de {df["amonia"].mean()}")
 
-# print("maior e menor salario")
-# # para calcular os valores maximos e minimos podemos utilizar as funcoes max() e min()
+print()
 
-# print(f"o maior salario foi de {df['Salario'].max()}")
-# print(f"o menor salario foi de {df['Salario'].min()}")
+print("maior e menor temperatura_ar")
+# para calcular os valores maximos e minimos podemos utilizar as funcoes max() e min()
+
+print(f"o maior temperatura_ar foi de {df['temperatura_ar'].max()}")
+print(f"o menor temperatura_ar foi de {df['temperatura_ar'].min()}")
 
 print("-----FILTROS-----")
+
+print("todos registros que tiveram a temperatura_ar maior que 30")
+print(df[df["temperatura_ar" ] > 30])
+
+print()
+
+print("todos registros que tiveram a amonia maior que 10")
+print(df[df["amonia"] > 10])
+
+print()
+
+print("todos registros que tiveram a temperatura_ar menor que 25")
+print(df[df["temperatura_ar"] < 25])
+
+print()
+
+print("todos registros que tiveram a amonia igual a 5")
+print(df[df["amonia"] == 5])
+
+print()
+
+print("todos registros que tiveram a temperatura_ar maior ou igual a 30")
+print(df[df["temperatura_ar"] >= 30])
+
+print()
+
+print("todos registros que tiveram a temperatura_ar maior que 30 E amonia > 10")
+print(df[(df["temperatura_ar"] > 30) & (df["amonia"] > 10)])
+
+print()
+
+print("todos registros que tiveram a temperatura_ar menor que 25 E amonia menor que 5")
+print(df[(df["temperatura_ar"] > 25) & (df["amonia"] < 5)])
+
+print()
+
+print("todos registros que tiveram a temperatura_ar maior que 35 OU amonia maior que 15")
+print(df[(df["temperatura_ar"] > 35) | (df["amonia"] > 15)])
+
+print()
+
+print("todos registros que tiveram a temperatura_ar maior que 25 E temperatura_ar menor que 30")
+print(df[(df["temperatura_ar"] > 25) & (df["temperatura_ar"] < 30)])
+
+print()
+
+print("Encontre todos os registros onde amonia maior que 10 e mostre a media desse registro")
+print(f"a media desses registros é de: {df[df["amonia"] > 10] ["amonia"].mean():.2f}")
+
+print()
+
+print("Descubra a maior concentração de amonia somente quando: temperatura_ar for maior que 30")
+print(f"a maior concentracao de amonia nesse intervalo foi de {df[df["temperatura_ar"] > 30] ["temperatura_ar"].max():.2f}")
+
 
