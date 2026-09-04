@@ -255,7 +255,87 @@ print(f"o maior valor do itgu foi de {df["itgu"].max()}")
 print("Descubra o menor valor de ITGU.")
 print(f"o menor valor do itgu foi de {df['itgu'].min()}")
 
+print("---------- EXERCICIOS 04/09/26 ----------")
 
+''' df.sort_values()
+    Serve para ordenar os registros do DataFrame
+    de acordo com uma determinada coluna.
+
+    Podemos ordenar:
+    * Do menor para o maior
+    * Do maior para o menor
+
+    Para ordenar do maior para o menor utilizamos:
+    ascending=False
+'''
+
+print("Ordene o DataFrame pela coluna temperatura_ar, da menor para a maior.")
+print(df.sort_values("temperatura_ar"))
+
+print("\n")
+
+print("Ordene o DataFrame pela coluna temperatura_ar, da maior para a menor.")
+print(df.sort_values("temperatura_ar", ascending=False))
+
+print()
+
+''' df.head()
+    Mostra os primeiros registros do DataFrame.
+
+    Podemos informar dentro dos parenteses quantos
+    registros queremos visualizar.
+
+    Exemplo:
+    df.head(10)
+
+    Mostra os 10 primeiros registros.
+'''
+
+''' df.tail()
+    Mostra os ultimos registros do DataFrame.
+
+    Tambem podemos informar quantos registros queremos.
+'''
+
+print("Mostre somente os 5 registros com maior temperatura_ar.")
+print(f"As 5 maiores temperaturas foram de:{df.sort_values(by='temperatura_ar', ascending=False).head(5)}")
+
+print()
+
+print("Mostre somente os 5 registros com maior amonia.")
+print(f"As 5 maiores Amonias foram de\n'{df.sort_values("amonia", ascending=False).head(5)}")
+
+print()
+
+print("Mostre os 10 registros com menor itgu.")
+print(df.sort_values("itgu").head(10))
+
+print()
+
+print("Mostre os primeiros 10 registros do dataset.")
+print(df.head(10))
+
+print(" Mostre os últimos 10 registros do dataset.")
+print(df.tail(10))
+
+print()
+
+print("Ordene pela temperatura_ar do maior para o menor e mostre os 10 primeiros.")
+print(df.sort_values("temperatura_ar", ascending=False).head(10))
+
+print()
+
+''' value_counts()
+    Conta quantas vezes cada valor aparece em uma coluna.
+
+    É muito utilizado para descobrir a quantidade
+    de ocorrencias de cada valor.
+
+    Pode ser utilizado em uma coluna do DataFrame.
+'''
+
+print("Descubra quantos registros existem para cada timestamp.")
+print(df.value_counts("timestamp"))
 
 
 
