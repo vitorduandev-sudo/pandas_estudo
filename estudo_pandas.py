@@ -156,7 +156,7 @@ print(df[(df["temperatura_ar"] > 30) & (df["amonia"] > 10)])
 print()
 
 print("todos registros que tiveram a temperatura_ar menor que 25 E amonia menor que 5")
-print(df[(df["temperatura_ar"] > 25) & (df["amonia"] < 5)])
+print(df[(df["temperatura_ar"] < 25) & (df["amonia"] < 5)])
 
 print()
 
@@ -177,5 +177,166 @@ print()
 
 print("Descubra a maior concentração de amonia somente quando: temperatura_ar for maior que 30")
 print(f"a maior concentracao de amonia nesse intervalo foi de {df[df["temperatura_ar"] > 30] ["temperatura_ar"].max():.2f}")
+
+
+print("------TREINAMENTO DIA 03/09/26")
+print()
+
+print("Mostre quanros registros existem no DataSet:")
+print(f"Existem {df.shape[0]} registros no dataset")
+
+print()
+
+print("Calcule a média da coluna temperatura_ar:")
+print(f"A media das temperaturas da coluna temperatura_ar é de {df["temperatura_ar"].mean():.2f}")
+
+print()
+
+print("Calcule a média da coluna amonia:")
+print(f"A media na coluna amonia foi de {df['amonia'].mean()}")
+
+print()
+
+print("Descubra a maior temperatura registrada:")
+print(f"A maior temperatura registrada foi de {df['temperatura_ar'].max()}")
+
+print()
+
+print("Descubra a menor temperatura registrada")
+print(f"A menor temperatura registrada foi de {df['temperatura_ar'].min()}")
+
+print()
+
+print("Descubra a menor concentração de amônia registrada")
+print(f"A menor concentração de amonia utilizada foi de {df['amonia'].min()}")
+
+print("Mostre somente as colunas: timestamp, temperatura_ar, umidade_relativa")
+print(df[["timestamp", "temperatura_ar", "umidade_relativa"]])
+
+print()
+
+print("Mostre somente: amonia, temperatura_globo_negro, itgu")
+print(df[["amonia", "temperatura_globo_negro", "itgu"]])
+
+print()
+
+print("Descubra o tipo de dado (dtype) de cada coluna.")
+print(df.dtypes)
+
+print("Descubra quantos valores únicos existem na coluna timestamp")
+print(f"existem {df["timestamp"].nunique()} valores unicos na coluna")
+
+print()
+
+print("Descubra se existem valores nulos em alguma das 7 colunas.")
+print(df.isnull().sum())
+
+print("Calcule a média de: temperatura_ar, umidade_relativa, amonia, temperatura_globo_negro, ponto_orvalho, itgu")
+print(df[["temperatura_ar", "umidade_relativa", "amonia", "temperatura_globo_negro", "ponto_orvalho", "itgu"]].mean())
+
+print()
+
+print("Descubra a maior umidade relativa:")
+print(f"A maior umidade relativa foi de {df["umidade_relativa"].max()}")
+
+print()
+
+print("Descubra a menor umidade relativa.")
+print(f"A menor umidade relativa foi de {df["umidade_relativa"].min()}")
+
+print()
+
+print("Descubra a maior temperatura de globo negro.")
+print(f"A maior temperatura do globo negro foi de {df["temperatura_globo_negro"].max()}")
+
+print("Descubra o maior valor de ITGU.")
+print(f"o maior valor do itgu foi de {df["itgu"].max()}")
+
+print("Descubra o menor valor de ITGU.")
+print(f"o menor valor do itgu foi de {df['itgu'].min()}")
+
+print("---------- EXERCICIOS 04/09/26 ----------")
+
+''' df.sort_values()
+    Serve para ordenar os registros do DataFrame
+    de acordo com uma determinada coluna.
+
+    Podemos ordenar:
+    * Do menor para o maior
+    * Do maior para o menor
+
+    Para ordenar do maior para o menor utilizamos:
+    ascending=False
+'''
+
+print("Ordene o DataFrame pela coluna temperatura_ar, da menor para a maior.")
+print(df.sort_values("temperatura_ar"))
+
+print("\n")
+
+print("Ordene o DataFrame pela coluna temperatura_ar, da maior para a menor.")
+print(df.sort_values("temperatura_ar", ascending=False))
+
+print()
+
+''' df.head()
+    Mostra os primeiros registros do DataFrame.
+
+    Podemos informar dentro dos parenteses quantos
+    registros queremos visualizar.
+
+    Exemplo:
+    df.head(10)
+
+    Mostra os 10 primeiros registros.
+'''
+
+''' df.tail()
+    Mostra os ultimos registros do DataFrame.
+
+    Tambem podemos informar quantos registros queremos.
+'''
+
+print("Mostre somente os 5 registros com maior temperatura_ar.")
+print(f"As 5 maiores temperaturas foram de:{df.sort_values(by='temperatura_ar', ascending=False).head(5)}")
+
+print()
+
+print("Mostre somente os 5 registros com maior amonia.")
+print(f"As 5 maiores Amonias foram de\n'{df.sort_values("amonia", ascending=False).head(5)}")
+
+print()
+
+print("Mostre os 10 registros com menor itgu.")
+print(df.sort_values("itgu").head(10))
+
+print()
+
+print("Mostre os primeiros 10 registros do dataset.")
+print(df.head(10))
+
+print(" Mostre os últimos 10 registros do dataset.")
+print(df.tail(10))
+
+print()
+
+print("Ordene pela temperatura_ar do maior para o menor e mostre os 10 primeiros.")
+print(df.sort_values("temperatura_ar", ascending=False).head(10))
+
+print()
+
+''' value_counts()
+    Conta quantas vezes cada valor aparece em uma coluna.
+
+    É muito utilizado para descobrir a quantidade
+    de ocorrencias de cada valor.
+
+    Pode ser utilizado em uma coluna do DataFrame.
+'''
+
+print("Descubra quantos registros existem para cada timestamp.")
+print(df.value_counts("timestamp"))
+
+
 
 
